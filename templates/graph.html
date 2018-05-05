@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta url="http://localhost:5000/static/pics/graph.svg" http-equiv='refresh'>
+    <meta charset="UTF-8">
+    <title>Граф</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_graph.css') }}">
+    <style type="text/css">
+        div.graphs
+        {
+            position: absolute;
+            top: 300px;
+        }
+
+        .first_text
+        {
+            position: absolute;
+            top: 240px;
+          font-family: 'Open Sans', sans-serif;
+          color: lightslategray;
+          font-weight: normal;
+        }
+
+        .graphs_final
+        {
+            position: absolute;
+            top: 750px;
+        }
+        .second_text
+        {
+            position: absolute;
+            top: 700px;
+            font-family: 'Open Sans', sans-serif;
+          color: lightslategray;
+          font-weight: normal;
+        }
+
+        body
+        {
+            background-color: aliceblue;
+        }
+
+
+        .header {
+  overflow: hidden;
+  background-color: lightslategrey;
+  padding: 20px 10px;
+}
+
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header h2.logo {
+  font-size: 30px;
+  font-weight: bold;
+    color: ghostwhite;
+    font-family: 'Times New Roman', sans-serif;
+    padding-left: 60px;
+}
+
+.header a:hover {
+  background-color: aliceblue;
+  color: black;
+}
+
+.header-left {
+  float: left;
+    left: 50px;
+    padding: 20px;
+
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+      padding: 5px;
+  }
+  .header-left {
+    float: none;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+<div class="header">
+  <h2 class="logo">Алгоритм Прима</h2>
+  <div class="header-left">
+    <a class="active" href="circle">Построение на окружности</a>
+    <a class="active" href="rect">Построение на прямоугольной сетке</a>
+      <a class="active" href="{{ url_for('open_generation') }}">Генерировать снова</a>
+      <a class="active" href="{{ url_for('open_discription') }}">Описание алгоритма</a>
+  </div>
+</div>
+<h2 class="first_text">Исходный граф</h2>
+<div class="graphs">
+<img src="/static/pics/graph.svg"  height="500" width="500"/>
+<img src="/static/pics/graph_rect.svg"  height="500" width="500"/>
+</div>
+
+<h2 class="second_text">Выделенное НОД</h2>
+<div class="graphs_final">
+<img src="/static/pics/graphCircle_final.svg"  height="500" width="500"/>
+<img src="/static/pics/graphRect_final.svg"  height="500" width="500"/>
+</div>
+
+<div class="flash">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+</div>
+</body>
+</html>

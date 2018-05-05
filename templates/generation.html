@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Генерирование графа</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_generation.css') }}">
+    <style type="text/css">
+        .plots
+        {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            border-width: 2px;
+            border-radius: 2px;
+            border-color: black;
+            border-style: solid;
+            padding: 15px;
+        }
+        .back_graph
+        {
+            position: absolute;
+            left: 300px;
+            top: 15px;
+            opacity: 0.15;
+        }
+        body
+        {
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="plots">
+<h2>Генерация графа</h2>
+
+<form method="POST" action="http://localhost:5000/generation">
+         <p>Количество вершин <input type = "text" name = "size" /></p>
+         <p>Вес ребер от &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type = "text" name = "from" /></p>
+         <p>Вес ребер до &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type = "text" name = "to" /></p>
+         <p><input type = "submit" value = "Сгенерировать" /></p>
+</form>
+</div>
+<img src="/static/graph_background.png" height="668" width="900" class="back_graph">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+</body>
+</html>

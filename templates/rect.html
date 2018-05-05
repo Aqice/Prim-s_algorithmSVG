@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Граф на прямоугольной сетке</title>
+    <style type="text/css">
+        body
+        {
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <a href={{ url_for('run') }}><h2>Вернуться к графу</h2></a>
+  {% for image in images %}
+    <img src= "{{ image }}" >
+  {% endfor %}
+</body>
+</html>
